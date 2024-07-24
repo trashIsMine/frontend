@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/logo.module.scss';
+import styles from '../../styles/logo.module.scss';
 
 function Logo() {
     const onClick = () => {

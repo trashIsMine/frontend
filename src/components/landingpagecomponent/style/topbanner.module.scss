@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* 배너 스타일 */
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1250px;
+    height: 512px; /* 배너 높이를 512px로 고정 */
+    margin: 0 auto;
+    padding-left: 40px;
+    background-color: rgba(0, 149, 15, 0.46);
+    border-radius: 24px;
+
+    /* 배너 내용 스타일 */
+    .bannerContent {
+        display: flex;
+        flex-direction: column;
+        gap: 23px;
+        text-align: left;
+        justify-content: center; /* 수직 중앙 정렬 */
+        z-index: 999;
+
+        /* 제목 스타일 */
+        h1 {
+            font-family: 'Alfa Slab One', sans-serif;
+            font-size: 85px;
+            color: #000;
+            margin: 0; /* 마진 제거 */
+        }
+
+        /* 통계 스타일 */
+        .stats {
+            display: flex;
+            gap: 40px;
+
+            /* 통계 항목 스타일 */
+            .stat {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                font-family: 'Poppins', sans-serif;
+
+                h2 {
+                    font-size: 64px;
+                    color: #000;
+                    margin: 0; /* 마진 제거 */
+                }
+
+                p {
+                    font-size: 18px;
+                    color: #666;
+                    margin: 0; /* 마진 제거 */
+                }
+            }
+        }
+    }
+
+    /* 배너 이미지 스타일 */
+    .bannerImage {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            width: auto; /* 이미지 크기 조정 */
+            height: 512px;
+            border-radius: 12px;
+            z-index: 1;
+        }
+
+        /* 원형 배경 스타일 */
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0; /* 상단에 위치 */
+            right: 0; /* 오른쪽에 위치 */
+            width: 570px;
+            height: 512px;
+            background-color: rgba(255, 255, 255, 0.62);
+            border-radius: 200px 200px 0 200px; /* 기존 border-radius 속성 유지 */
+            z-index: 0;
+        }
+    }
+}
