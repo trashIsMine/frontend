@@ -1,14 +1,14 @@
-import React from 'react';
 import './App.css';
-import Buttons from './components/scss/Buttons';
-
+import LandingPage from "./pages/LandingPage";
+import TopMenu from "./components/TopMenu";
 
 function App() {
-    return (
-        <div className="App">
-            <Buttons/>
-        </div>
-    );
+  return (
+    <div className="App">
+        <TopMenu/>
+        <LandingPage/>
+    </div>
+  );
 }
 
 export default App;

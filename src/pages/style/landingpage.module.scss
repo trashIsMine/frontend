@@ -1,0 +1,12 @@
+.banner{
+  width: 1250px;
+  height: 512px;
+
+  background: rgba(0, 149, 15, 0.46);
+  border-radius: 24px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 3;
+  flex-grow: 0;
+}
