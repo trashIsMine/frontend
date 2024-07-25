@@ -2,9 +2,16 @@ import React from 'react';
 import styles from "../landingpagecomponent/style/placerecommend.module.scss";
 import mapImage1 from '../../images/map1.png'; // 예시 이미지 경로, 실제 이미지로 대체하세요
 import mapImage2 from '../../images/map2.png'; // 예시 이미지 경로, 실제 이미지로 대체하세요
-import mapImage3 from '../../images/map3.png'; // 예시 이미지 경로, 실제 이미지로 대체하세요
+import mapImage3 from '../../images/map3.png';
+import {useNavigate} from "react-router-dom"; // 예시 이미지 경로, 실제 이미지로 대체하세요
 
 const PlaceRecommend = () => {
+    const navigate = useNavigate();
+
+    const handleMapClick = () => {
+        navigate('/map');
+    };
+
     return (
         <div className={styles.ploggingPlaces}>
             <div className={styles.ploggingHeader}>
@@ -17,7 +24,7 @@ const PlaceRecommend = () => {
                     사람들과 함께 <br/>
                     플로깅을 즐겨보세요.<br/>
                 </p>
-                <button className={styles.seeMapButton}>See Map</button>
+                <button className={styles.seeMapButton} onClick={handleMapClick}>See Map</button>
             </div>
             <div className={styles.ploggingCards}>
                 <div className={styles.card}>
