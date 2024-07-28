@@ -4,13 +4,16 @@
     background-color: rgba(0, 149, 15, 0.46);
     padding: 40px;
     width: 100%;
-    max-width: 1250px;
+    max-width: 1250px; /* 페이지의 최대 너비와 일치하도록 수정 */
     height: 300px;
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
+    align-items: flex-start; /* 중앙 정렬 대신 시작 위치에 맞춤 */
+    flex-wrap: nowrap; /* 한 줄로 유지 */
     text-align: left;
     position: relative;
+    border-radius: 24px;
+    //margin: 0 auto 0 auto; /* 페이지 중앙 정렬 */
 
     .footerLeft {
         display: flex;
@@ -35,7 +38,7 @@
             font-size: 12px;
             position: absolute;
             bottom: 10px;
-            left: 40px; /* 부모 요소의 padding을 고려하여 적절한 값으로 설정 */
+            left: 40px;
         }
     }
 

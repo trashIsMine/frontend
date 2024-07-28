@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from '../styles/bottombanner.module.scss';
-import {useNavigate} from "react-router-dom";
 
 function BottomBanner() {
     return (
