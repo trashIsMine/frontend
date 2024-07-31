@@ -1,9 +1,9 @@
 .postControl {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-end; /* 버튼들을 오른쪽으로 정렬 */
   align-items: center;
   margin-bottom: 20px;
-  flex-wrap: wrap; /* 필요한 경우 요소를 다음 줄로 감싸도록 추가 */
+  gap: 10px; /* 버튼 사이의 간격 추가 */
 }
 
 .writePost {
@@ -14,7 +14,6 @@
   padding: 10px 20px;
   cursor: pointer;
   font-size: 16px;
-  margin-right: 10px; /* 버튼과 드롭다운 사이의 간격을 위해 추가 */
 
   &:hover{
     opacity: 0.7;
@@ -28,6 +27,4 @@
   font-size: 16px;
   background-color: #fff;
   cursor: pointer;
-  min-width: 150px; /* 최소 너비를 설정하여 버튼이 너무 작아지지 않도록 추가 */
-  margin: 0;
 }

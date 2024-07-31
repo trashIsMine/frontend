@@ -7,11 +7,12 @@ interface NoticeItemProps {
     description: string;
     views: string;
     imgSrc: string;
+    onClick: () => void; // 클릭 핸들러 추가
 }
 
-const NoticeItem = ({ date, title, description, views, imgSrc } : NoticeItemProps) => {
+const NoticeItem = ({ date, title, description, views, imgSrc, onClick } : NoticeItemProps) => {
     return (
-        <div className={styles.noticeItem}>
+        <div className={styles.noticeItem} onClick={onClick}> {/* 클릭 핸들러 추가 */}
             <div className={styles.imageContainer}>
                 <img src={imgSrc} alt={title} />
             </div>

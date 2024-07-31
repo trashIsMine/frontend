@@ -1,0 +1,38 @@
+export const noticedata = [
+    {
+        id: 1,
+        date: "2024년 07월 03일",
+        title: "플로깅과 함께하는 ECO 마라톤",
+        description: "조선해쉬테라프 호텔에서 주관하는 에코 마라톤이 열립니다. ECO 마라톤에 참가할 수 있는 이벤트가 열립니다.",
+        views: "450 views",
+        imgSrc: require('../images/notice1.png'),
+        content: "조선호텔앤리조트가 운영하는 럭셔리 리조트형 호텔 그랜드 조선 제주(Grand Josun Jeju)는 11월 ‘세계 비건의 달’을 맞이하여 제주 올레길을 걸으며 ‘플로깅’(Plogging)을 체험하면서 ECO 마라톤을 체험할 수 있는 이벤트를 진행한다. ‘플로깅’은 ‘이삭을 줍는다’는 뜻의 스웨덴어 ‘plocka upp(플로카 우프)’와 영어 단어 ‘jogging(조깅)’의 합성어로, 산책이나 조깅을 하는 동안 쓰레기를 줍는다는 의미를 뜻한다. 2016년 스웨덴에서 처음 시작된 이 캠페인은 북유럽을 중심으로 확산되었으며, 최근에는 조깅보다 칼로리 소모가 많아 운동 효과와 더불어 환경도 보호할 수 있다는 점에서 MZ세대 사이에서...",
+    },
+    {
+        id: 2,
+        date: "2024년 07월 02일",
+        title: "세계 환경의 날 기념 플로깅 이벤트",
+        description: "세계 환경의 날 기념으로 플로깅 이벤트가 열립니다. 함께 환경을 보호하는 시간을 가져봅시다.",
+        views: "1000 views",
+        imgSrc: require('../images/notice2.png'),
+        content: "세계 환경의 날 기념으로 플로깅 이벤트가 열립니다. 함께 환경을 보호하는 시간을 가져봅시다.",
+    },
+    {
+        id: 3,
+        date: "2024년 07월 01일",
+        title: "ECORUNNER, ABC마트와 함께하는 플로깅 챌린지!",
+        description: "ECORUNNER와 ABC마트가 함께하는 플로깅 챌린지가 열립니다. 참가자 전원에게 기념품이 제공됩니다.",
+        views: "5000 Reviews",
+        imgSrc: require('../images/notice3.png'),
+        content: "ECORUNNER와 ABC마트가 함께하는 플로깅 챌린지가 열립니다. 참가자 전원에게 기념품이 제공됩니다.",
+    },
+    {
+        id: 4,
+        date: "2024년 07월 01일",
+        title: "남이섬에서 진행하는 플로깅 이벤트!",
+        description: "남이섬에서 플로깅 이벤트가 열립니다. 참가자 전원에게 기념품이 제공됩니다.",
+        views: "450 Reviews",
+        imgSrc: require('../images/notice4.png'),
+        content: "남이섬에서 플로깅 이벤트가 열립니다. 참가자 전원에게 기념품이 제공됩니다.",
+    },
+];
