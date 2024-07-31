@@ -1,12 +1,13 @@
 import './App.css';
-import LandingPage from "./pages/LandingPage";
+import SignupPage from "./pages/SignupPage";
 import TopMenu from "./components/TopMenu";
+import LoginPage from "./pages/LoginPage"
 
 function App() {
   return (
     <div className="App">
         <TopMenu/>
-        <LandingPage/>
+        <SignupPage/>
     </div>
   );
 }
