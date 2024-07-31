@@ -39,7 +39,7 @@ function LoginPage() {
                             비밀번호
                             <input type="password" name="password" placeholder="Password" onChange={passwordChanged} />
                         </label>
-                        <button type="submit" className="submit-button">로그인</button>
+                        <button type="submit" className={styles.submitButton}>로그인</button>
                     </form>
                 </div>
             </div>
