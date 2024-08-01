@@ -453,7 +453,7 @@ function CreatePostPage({ setSelectedPlace, addPost, login, setLogin }: CreatePo
         data.append('date', inputs.date);
         data.append('time', inputs.time);
         data.append('description', inputs.description);
-        data.append('content', inputs.content);
+        data.append('content', inputs.description);
         data.append('lat', inputs.lat.toString());
         data.append('lng', inputs.lng.toString());
 

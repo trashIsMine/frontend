@@ -47,7 +47,7 @@ export interface getPost {
     downloadUrl: string
 }
 
-export let EmptygetPost : getPost = {
+export const EmptygetPost : getPost = {
     id: 0,
     title: '',
     location: '',
