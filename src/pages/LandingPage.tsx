@@ -4,8 +4,15 @@ import Aboutpage from "../components/landingpagecomponent/Aboutpage";
 import ReviewBanner from "../components/landingpagecomponent/ReviewBanner";
 import styles from "../styles/landigngpage.module.scss"
 import BottomBanner from "../components/BottomBanner";
+import React from "react";
 
-function LandingPage() {
+function LandingPage({ login, setLogin }: { login: boolean; setLogin: React.Dispatch<React.SetStateAction<boolean>> }) {
+    if (login) {
+        setLogin(true);
+    }
+    else {
+        setLogin(false);
+    }
     return (
         <div className={styles.landingPage}>
             <TopBanner/>

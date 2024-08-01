@@ -4,7 +4,14 @@ import styles from '../styles/noticepage.module.scss';
 import { noticedata } from "../util/noticedata";
 import { useNavigate } from "react-router-dom";
 
-function NoticePage() {
+function NoticePage({ login, setLogin }: { login: boolean; setLogin: React.Dispatch<React.SetStateAction<boolean>> }) {
+    if (login) {
+        setLogin(true);
+    }
+    else {
+        setLogin(false);
+    }
+
     const navigate = useNavigate();
 
     const handleNoticeClick = (id: number) => {

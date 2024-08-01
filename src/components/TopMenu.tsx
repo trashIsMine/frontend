@@ -3,11 +3,18 @@ import styles from '../styles/topmenu.module.scss';
 import { FaUserCircle, FaBars } from 'react-icons/fa';
 import {useNavigate} from "react-router-dom";
 
-function TopMenu() {
+function TopMenu({ login, setLogin }: { login: boolean; setLogin: React.Dispatch<React.SetStateAction<boolean>> }) {
     const navigate = useNavigate();
 
     const handleUserProfileClick = () => {
-        navigate('/login');
+        if (login) {
+            navigate('/mypage');
+        }
+        else {
+            navigate('/login')
+        }
+        // {login} : navigate('/login') ? navigate('/mypage')
+        // navigate('/login');
     };
 
     return (

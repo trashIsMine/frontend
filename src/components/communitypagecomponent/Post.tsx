@@ -1,36 +1,52 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import styles from './style/post.module.scss';
-import {ppost} from "../../util/communitydata";
+import { ppost } from "../../util/communitydata";
+import {Post} from "../../interface/posts";
 
-export interface Post {
-    title: string;
-    location: string;
-    participants: string;
-    time: string;
-    views: number;
-    image: string;
-    description: string;
+interface PopularPostsProps {
+    posts: Post[];
 }
 
-const PopularPosts = () => {
+const PopularPosts: React.FC<PopularPostsProps> = ({posts}) => {
+    const navigate = useNavigate(); // Initialize navigate function
+
+    const goToPostDetail = (id: number) => {
+        navigate(`/post/${id}`); // Navigate to the post detail page
+    };
+
     // return (
-    //     // <section className={styles.popularPosts}>
-    //     //     {/*<h2 className={styles.h2}>인기글</h2>*/}
-    //     //     {posts.map((post, index) => (
-    //     //         <div className={styles.post} key={index}>
-    //     //             {/*<img src={post.imgSrc} alt={post.title} />*/}
-    //     //             <div className={styles.postDetails}>
-    //     //                 <h3>{post.title}</h3>
-    //     //                 <p>{post.location} | {post.participants} | {post.time}</p>
-    //     //                 <p>{post.description}</p>
-    //     //                 <span>{post.views} views</span>
-    //     //             </div>
-    //     //         </div>
-    //     //     ))}
-    //     // </section>
-    //     null
+    //     <section className={styles.popularPosts}>
+    //         {ppost.map((post) => (
+    //             <div className={styles.post} key={post.id} onClick={() => goToPostDetail(post.id)}>
+    //                 <img src={post.imgSrc} alt={post.title} />
+    //                 <div className={styles.postDetails}>
+    //                     <h3>{post.title}</h3>
+    //                     <p>{post.location} | {post.participants} | {post.time}</p>
+    //                     <p>{post.description}</p>
+    //                     <span>{post.views} views</span>
+    //                 </div>
+    //             </div>
+    //         ))}
+    //     </section>
     // );
-    return null;
+    return (
+        <section className={styles.popularPosts}>
+            {posts.map((posts) => (
+                <div className={styles.post} key={posts.id} onClick={() => goToPostDetail(posts.id)}>
+                    {/*<img src={posts.imgSrc} alt={posts.title} />*/}
+                    <img src={posts.imageFile} alt={posts.title}/>
+
+                    <div className={styles.postDetails}>
+                        <h3>{posts.title}</h3>
+                        <p>{posts.location} | {posts.participants} | {posts.time}</p>
+                        <p>{posts.description}</p>
+                        <span>{posts.views} views</span>
+                    </div>
+                </div>
+            ))}
+        </section>
+    );
 };
 
 export default PopularPosts;

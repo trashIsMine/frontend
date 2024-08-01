@@ -5,7 +5,13 @@ import intro2 from '../images/intro2.png';
 import intro3 from '../images/intro3.png';
 import intro4 from '../images/intro4.png';
 
-function IntroPage() {
+function IntroPage({ login, setLogin }: { login: boolean; setLogin: React.Dispatch<React.SetStateAction<boolean>> }) {
+    if (login) {
+        setLogin(true);
+    }
+    else {
+        setLogin(false);
+    }
     return (
         <div className={styles.container}>
             <div className={styles.section}>

@@ -1,8 +1,9 @@
 .postControl {
   display: flex;
   justify-content: flex-end; /* 버튼들을 오른쪽으로 정렬 */
-  align-items: center;
-  margin-bottom: 20px;
+  align-items: end;
+  margin-bottom: 0px;
+  margin-right: 10px;
   gap: 10px; /* 버튼 사이의 간격 추가 */
 }
 

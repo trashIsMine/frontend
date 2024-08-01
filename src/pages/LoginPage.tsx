@@ -2,8 +2,16 @@ import React, { useState } from 'react';
 import styles from '../styles/loginpage.module.scss';
 import axios from "axios";
 import { EmptyLogin, Login } from "../interface/user";
+import {useNavigate} from "react-router-dom";
 
-function LoginPage() {
+function LoginPage({ login, setLogin }: { login: boolean; setLogin: React.Dispatch<React.SetStateAction<boolean>> }) {
+    if (login) {
+        setLogin(true);
+    }
+    else {
+        setLogin(false);
+    }
+    const navigate = useNavigate();
     const [data, setData] = useState<Login>(EmptyLogin);
     const baseUrl = "http://3.37.252.66:8080";
     const [inputs, setInputs] = useState({
@@ -25,8 +33,10 @@ function LoginPage() {
         axios.post(`${baseUrl}/user/authenticate`, inputs)
             .then((response) => {
                 if (response.status === 200) {
-                    alert('Login successful!');
+                    // alert('Login successful!');
                     setData(response.data);
+                    navigate("/");
+                    setLogin(true);
                     // 여기서 원하는 동작을 추가할 수 있습니다. 예: 페이지 이동 등.
                 } else {
                     alert('Login failed. Please try again.');

@@ -8,8 +8,29 @@ export interface Post {
     views: number;
     description: string;
     content: string;
-    place: {
-        lat: number;
-        lng: number;
-    };
+    // imgSrc: string;
+    imageFile: string;
+
+    lat: number;
+    lng: number;
+}
+
+// interface imagedata {
+//     []: string
+// }
+
+export let EmptyPost : Post = {
+    id: 0,
+    title: '',
+    location: '',
+    participants: '',
+    date: '',
+    time: '',
+    views: 0,
+    description: '',
+    content: '',
+    // imgSrc: '',
+    imageFile: '',
+    lat: 0,
+    lng: 0
 }

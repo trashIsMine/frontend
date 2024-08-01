@@ -16,44 +16,61 @@ import {ppost} from "./util/communitydata";
 import MyPage from "./pages/MyPage";
 import EditProfilePage from "./pages/EditProfilePage";
 import SignupPage from "./pages/SignupPage";
+import { Post } from "./interface/posts";
 
-interface Post {
-    title: string;
-    date: string;
-    time: string;
-    address: string;
-    people: string;
-    description: string;
-    place: { lat: number, lng: number };
-}
 
 function App() {
     const [selectedPlace, setSelectedPlace] = useState<{ lat: number, lng: number } | null>(null);
     const [posts, setPosts] = useState<Post[]>([]);
+    // Fetch posts and store them in the state
+    useEffect(() => {
+        const fetchPosts = async () => {
+            axios.get(`http://3.37.252.66:8080/index/articles`)
+                .then((response) => {
+                    if (response.status === 200) {
+                        setPosts(response.data);
+                        // console.log('Articles:', response.data);
+                        // console.log(articles);
+                    } else {
+                        alert('Post get failed. Please try again.');
+                    }
+                })
+                .catch(error => {
+                    if (error.response) {
+                        alert(`Error: ${error.response.data}`);
+                    } else {
+                        alert('Error during request');
+                    }
+                });
+        };
+
+        fetchPosts();
+    }, []);
 
     const addPost = (post: Post) => {
         setPosts([...posts, post]);
     };
 
     const [message, setMessage] = useState('');
+    const [login, setLogin] = useState<boolean>(false);
 
     return (
         <Router>
             <div className="App">
-                <TopMenu />
+                <TopMenu login={login} setLogin={setLogin}/>
                 <Routes>
-                    <Route path={`${process.env.PUBLIC_URL}/`} element={<LandingPage />} />
-                    <Route path={`${process.env.PUBLIC_URL}/map`} element={<MapPage selectedPlace={selectedPlace} />} />
-                    <Route path={`${process.env.PUBLIC_URL}/intro`} element={<IntroPage />} />
-                    <Route path={`${process.env.PUBLIC_URL}/login`} element={<LoginPage />} />
-                    <Route path={`${process.env.PUBLIC_URL}/signup`} element={<SignupPage />} />
-                    <Route path={`${process.env.PUBLIC_URL}/notices`} element={<NoticePage />} />
-                    <Route path={`${process.env.PUBLIC_URL}/community`} element={<CommunityPage posts={ppost} />} />
-                    <Route path={`${process.env.PUBLIC_URL}/community/post`} element={<CreatePostPage setSelectedPlace={setSelectedPlace} addPost={addPost} />} />
-                    <Route path="/notice/:id" element={<NoticeDetailPage />} />
-                    <Route path="/post/:id" element={<PostDetailPage />} />
-                    <Route path="/mypage" element={<MyPage />} />
-                    <Route path="/mypage/edit" element={<EditProfilePage />} />
+                    <Route path={`${process.env.PUBLIC_URL}/`} element={<LandingPage login={login} setLogin={setLogin}/>} />
+                    <Route path={`${process.env.PUBLIC_URL}/map`} element={<MapPage selectedPlace={selectedPlace} login={login} setLogin={setLogin}/>} />
+                    <Route path={`${process.env.PUBLIC_URL}/intro`} element={<IntroPage login={login} setLogin={setLogin}/>} />
+                    <Route path={`${process.env.PUBLIC_URL}/login`} element={<LoginPage login={login} setLogin={setLogin}/>} />
+                    <Route path={`${process.env.PUBLIC_URL}/signup`} element={<SignupPage login={login} setLogin={setLogin}/>} />
+                    <Route path={`${process.env.PUBLIC_URL}/notices`} element={<NoticePage login={login} setLogin={setLogin}/>} />
+                    <Route path={`${process.env.PUBLIC_URL}/community`} element={<CommunityPage posts={ppost} login={login} setLogin={setLogin}/>} />
+                    <Route path={`${process.env.PUBLIC_URL}/community/post`} element={<CreatePostPage setSelectedPlace={setSelectedPlace} addPost={addPost} login={login} setLogin={setLogin}/>} />
+                    <Route path="/notice/:id" element={<NoticeDetailPage login={login} setLogin={setLogin}/>} />
+                    <Route path="/post/:id" element={<PostDetailPage posts={posts} login={login} setLogin={setLogin}/>} />
+                    <Route path="/mypage" element={<MyPage login={login} setLogin={setLogin}/>} />
+                    <Route path="/mypage/edit" element={<EditProfilePage login={login} setLogin={setLogin}/>} />
                 </Routes>
             </div>
         </Router>

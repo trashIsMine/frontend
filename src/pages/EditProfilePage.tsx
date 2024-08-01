@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import styles from '../styles/editprofilepage.module.scss';
 
-const EditProfilePage = () => {
+const EditProfilePage = ({ login, setLogin }: { login: boolean; setLogin: React.Dispatch<React.SetStateAction<boolean>> }) => {
+    if (login) {
+        setLogin(true);
+    }
+    else {
+        setLogin(false);
+    }
     const [profile, setProfile] = useState({
         firstName: 'Mehrab',
         lastName: 'Bozorgi',

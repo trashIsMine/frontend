@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './style/header.module.scss';
+import PostControl from "./Write";
 
 const Header = () => {
     return (
@@ -11,9 +12,12 @@ const Header = () => {
                     <li>이벤트</li>
                 </ul>
             </nav>
-            <div className={styles.search}>
-                <input type="text" placeholder="Search restaurant and cuisines..." />
-                <button type="button"><span role="img" aria-label="search">🔍</span></button>
+            <div className={styles.container}>
+                <PostControl />
+                <div className={styles.search}>
+                    <input type="text" placeholder="Search post..." />
+                    <button type="button"><span role="img" aria-label="search">🔍</span></button>
+                </div>
             </div>
         </header>
     );

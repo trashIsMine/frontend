@@ -3,7 +3,13 @@ import { useParams } from 'react-router-dom';
 import { noticedata } from '../util/noticedata';
 import styles from '../styles/noticedetailpage.module.scss';
 
-function NoticeDetailPage() {
+function NoticeDetailPage({ login, setLogin }: { login: boolean; setLogin: React.Dispatch<React.SetStateAction<boolean>> }) {
+    if (login) {
+        setLogin(true);
+    }
+    else {
+        setLogin(false);
+    }
     const { id } = useParams<{ id: string }>();
     const notice = noticedata.find((n) => n.id === parseInt(id || '0'));
 

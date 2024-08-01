@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import styles from '../styles/signuppage.module.scss';
 import axios from "axios";
 import { SignUp, EmptySignUp } from '../interface/user'; // 필요에 따라 경로 조정
 
-function SignupPage() {
+function SignupPage({ login, setLogin }: { login: boolean; setLogin: React.Dispatch<React.SetStateAction<boolean>> }) {
+    if (login) {
+        setLogin(true);
+    }
+    else {
+        setLogin(false);
+    }
+    const navigate = useNavigate();
     const [data, setData] = useState<SignUp>(EmptySignUp);
     const baseUrl = "http://3.37.252.66:8080";
     const [inputs, setInputs] = useState<SignUp>({
@@ -33,8 +40,9 @@ function SignupPage() {
         axios.post(`${baseUrl}/user/signup`, inputs)
             .then((response) => {
                 if (response.status === 200) {
-                    alert('Signup successful!');
+                    // alert('Signup successful!');
                     setData(response.data);
+                    navigate("/login");
                 } else {
                     alert('Signup failed. Please try again.');
                 }

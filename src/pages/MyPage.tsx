@@ -2,7 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../styles/mypage.module.scss';
 
-const MyPage = () => {
+const MyPage = ({ login, setLogin }: { login: boolean; setLogin: React.Dispatch<React.SetStateAction<boolean>> }) => {
+    if (login) {
+        setLogin(true);
+    }
+    else {
+        setLogin(false);
+    }
     return (
         <div className={styles.pageContainer}>
             <div className={styles.sidebar}>
