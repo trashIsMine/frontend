@@ -27,3 +27,13 @@ export const EmptySignUp: SignUp = {
         }
     ]
 }
+
+export interface Login{
+    username: string,
+    password: string
+}
+
+export const EmptyLogin: Login = {
+    username: '',
+    password: ''
+}

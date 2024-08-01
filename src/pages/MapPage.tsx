@@ -75,23 +75,23 @@ function MapPage({ selectedPlace }: MapPageProps) {
         };
     }, [selectedPlace, position]);
 
-    // useEffect(() => {
-    //     if (position.lat !== 0 && position.lng !== 0) {
-    //         const container = document.getElementById('map');
-    //         const options = {
-    //             center: new window.kakao.maps.LatLng(position.lat, position.lng),
-    //             level: 3
-    //         };
-    //         const map = new window.kakao.maps.Map(container, options);
-    //
-    //         const currentMarkerPosition = new window.kakao.maps.LatLng(position.lat, position.lng);
-    //         const currentMarker = new window.kakao.maps.Marker({
-    //             position: currentMarkerPosition,
-    //             title: "현재 위치"
-    //         });
-    //         currentMarker.setMap(map);
-    //     }
-    // }, [position]);
+    useEffect(() => {
+        if (position.lat !== 0 && position.lng !== 0) {
+            const container = document.getElementById('map');
+            const options = {
+                center: new window.kakao.maps.LatLng(position.lat, position.lng),
+                level: 3
+            };
+            const map = new window.kakao.maps.Map(container, options);
+
+            const currentMarkerPosition = new window.kakao.maps.LatLng(position.lat, position.lng);
+            const currentMarker = new window.kakao.maps.Marker({
+                position: currentMarkerPosition,
+                title: "현재 위치"
+            });
+            currentMarker.setMap(map);
+        }
+    }, [position]);
 
     return (
         <div id="map" className={styles.map}>

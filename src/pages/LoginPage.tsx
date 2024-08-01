@@ -1,43 +1,72 @@
 import React, { useState } from 'react';
-import TopMenu from '../components/TopMenu'
 import styles from '../styles/loginpage.module.scss';
+import axios from "axios";
+import { EmptyLogin, Login } from "../interface/user";
 
 function LoginPage() {
-    const [ email, setEmail ] = useState("");
-    const [ password, setPassword ] = useState("");
+    const [data, setData] = useState<Login>(EmptyLogin);
+    const baseUrl = "http://3.37.252.66:8080";
+    const [inputs, setInputs] = useState({
+        username: '',
+        password: ''
+    });
 
-    const emailChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setEmail(e.target.value);
-    }
+    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { value, name } = e.target;
+        setInputs({
+            ...inputs,
+            [name]: value,
+        });
+    };
 
-    const passwordChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setPassword(e.target.value);
-    }
+    const handleLogin = (e: React.FormEvent) => {
+        e.preventDefault();  // form 태그의 기본 동작을 방지합니다.
+        console.log(inputs);
+        axios.post(`${baseUrl}/user/authenticate`, inputs)
+            .then((response) => {
+                if (response.status === 200) {
+                    alert('Login successful!');
+                    setData(response.data);
+                    // 여기서 원하는 동작을 추가할 수 있습니다. 예: 페이지 이동 등.
+                } else {
+                    alert('Login failed. Please try again.');
+                }
+            })
+            .catch(error => {
+                if (error.response) {
+                    alert(`Error: ${error.response.data}`);
+                } else {
+                    alert('Error during login');
+                }
+            });
+
+        setInputs({
+            username: '',
+            password: ''
+        });
+    };
 
     return (
         <div className={styles.container}>
             <div className={styles.loginSection}>
                 <div className={styles.loginImage}>
                     <h2>로그인</h2>
-                    {/*<img src="unsplash_cLaaxa4DSnc-removebg-preview 1.png" alt="Plant" className="plant-image"/>*/}
                 </div>
                 <div className={styles.loginForm}>
-                    <div className={styles.loginForm__title}>
+                    <div className={styles.loginFormTitle}>
                         <h4>Welcome to <span className={styles.green}>ECORUNNER</span></h4>
-                        <div className={styles.loginForm__title__signup}>
-                            <h4>계정이 없으신가요?</h4>
-                            <a className={styles.green}>회원가입</a>
+                        <div className={styles.loginFormTitleSignup}>
+                            <h4>계정이 없으신가요? <a href="/signup" className={styles.green}>회원가입</a></h4>
                         </div>
                     </div>
-                    <h3>로그인</h3>
-                    <form>
+                    <form className={styles.form} onSubmit={handleLogin}>
                         <label>
                             사용자이름 혹은 이메일 주소
-                            <input type="text" name="username" placeholder="Username or Email Address" onChange={emailChanged}/>
+                            <input type="text" name="username" placeholder="Username or Email Address" className={styles.input} value={inputs.username} onChange={onChange} />
                         </label>
                         <label>
                             비밀번호
-                            <input type="password" name="password" placeholder="Password" onChange={passwordChanged} />
+                            <input type="password" name="password" placeholder="Password" className={styles.input} value={inputs.password} onChange={onChange} />
                         </label>
                         <button type="submit" className={styles.submitButton}>로그인</button>
                     </form>
