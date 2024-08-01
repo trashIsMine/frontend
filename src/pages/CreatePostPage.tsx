@@ -457,8 +457,8 @@ function CreatePostPage({ setSelectedPlace, addPost, login, setLogin }: CreatePo
         data.append('lat', inputs.lat.toString());
         data.append('lng', inputs.lng.toString());
 
-        console.log(data)
-        console.log(inputs)
+        console.log(inputs.lng.toString())
+        console.log(inputs.lat.toString())
 
         if (selectedFile) {
             data.append('imageFile', selectedFile);

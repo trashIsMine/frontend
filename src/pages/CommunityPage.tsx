@@ -7,7 +7,7 @@ import Filter from '../components/communitypagecomponent/Filter';
 import PostControl from '../components/communitypagecomponent/Write';
 import Item from '../components/communitypagecomponent/Item';
 import PopularPosts from "../components/communitypagecomponent/Post";
-import {EmptyPost, Post} from "../interface/posts";
+import {EmptyPost, getPost, Post} from "../interface/posts";
 import axios from "axios";
 import {ppost} from "../util/communitydata";
 
@@ -25,7 +25,7 @@ const CommunityPage = ({ posts,login, setLogin }: CommunityPageProps) => {
         setLogin(login);
     }
 
-    const [articles, setArticles] = useState<Post[]>([])
+    const [articles, setArticles] = useState<getPost[]>([])
     const baseUrl = "http://3.37.252.66:8080";
 
     useEffect(() => {
@@ -71,7 +71,7 @@ const CommunityPage = ({ posts,login, setLogin }: CommunityPageProps) => {
                     {/*        </div>*/}
                     {/*    ))}*/}
                     {/*</div>*/}
-                    <PopularPosts posts={articles}/>
+                    <PopularPosts getposts={articles}/>
                 </div>
             </div>
             <BottomBanner />
