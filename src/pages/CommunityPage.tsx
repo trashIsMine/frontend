@@ -10,6 +10,7 @@ import PopularPosts from "../components/communitypagecomponent/Post";
 import {EmptyPost, getPost, Post} from "../interface/posts";
 import axios from "axios";
 import {ppost} from "../util/communitydata";
+import styless from "../components/communitypagecomponent/style/header.module.scss";
 
 interface CommunityPageProps {
     posts: Post[];
@@ -24,6 +25,15 @@ const CommunityPage = ({ posts,login, setLogin }: CommunityPageProps) => {
     else {
         setLogin(login);
     }
+
+    const [search, setSearch] = useState<string>('');
+    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setSearch(e.target.value);
+    }
+    const onClick = () => {
+        const input:string = search;
+    }
+
 
     const [articles, setArticles] = useState<getPost[]>([])
     const baseUrl = "http://3.37.252.66:8080";
@@ -59,7 +69,23 @@ const CommunityPage = ({ posts,login, setLogin }: CommunityPageProps) => {
 
     return (
         <div className={styles.pageContainer}>
-            <Header />
+            {/*<Header />*/}
+            <header className={styless.header}>
+                <nav>
+                    <ul>
+                        <li>플로깅 모집</li>
+                        <li>자유게시판</li>
+                        <li>이벤트</li>
+                    </ul>
+                </nav>
+                <div className={styless.container}>
+                    <PostControl/>
+                    <div className={styless.search}>
+                        <input type="text" placeholder="Search post..." onChange={onChange}/>
+                        <button type="button"><span role="img" aria-label="search">🔍</span></button>
+                    </div>
+                </div>
+            </header>
             <div className={styles.mainContent}>
                 {/*<Filter />*/}
                 {/*<PostControl />*/}
@@ -74,7 +100,7 @@ const CommunityPage = ({ posts,login, setLogin }: CommunityPageProps) => {
                     <PopularPosts getposts={articles}/>
                 </div>
             </div>
-            <BottomBanner />
+            <BottomBanner/>
         </div>
     );
 };

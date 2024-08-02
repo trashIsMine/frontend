@@ -231,11 +231,12 @@ function MapPage({ selectedPlace, login, setLogin }: MapPageProps) {
         if (posts.length > 0) {
             getCurrentLocation();
         }
+        // initializeMap();
     }, [posts]);
 
     return (
         <div id="map" className={styles.map}>
-            {selectedPost && <DetailPanel post={selectedPost} />}  // 상세 패널 조건부 렌더링
+            {selectedPost && <DetailPanel post={selectedPost} />}
         </div>
     );
 }

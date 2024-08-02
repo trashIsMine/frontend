@@ -45,12 +45,12 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import styles from '../styles/postdetailpage.module.scss';
-import { Post } from '../interface/posts';
+import {getPost, Post} from '../interface/posts';
 
 interface DetailPostProps {
     login: boolean;
     setLogin: React.Dispatch<React.SetStateAction<boolean>>;
-    posts: Post[];
+    posts: getPost[];
 }
 
 function PostDetailPage({ posts, login, setLogin }: DetailPostProps) {
@@ -65,37 +65,37 @@ function PostDetailPage({ posts, login, setLogin }: DetailPostProps) {
 
     const [imageURL, setImageURL] = useState<string | null>(null);
 
-    useEffect(() => {
-        if (post) {
-            if (typeof post.imageFile === 'string') {
-                setImageURL(post.imageFile); // URL인 경우
-            } else if (post.imageFile instanceof File) {
-                const url = URL.createObjectURL(post.imageFile);
-                setImageURL(url); // File인 경우 URL 생성
-
-                // 컴포넌트가 언마운트될 때 Object URL을 해제하여 메모리 누수를 방지합니다.
-                return () => {
-                    URL.revokeObjectURL(url);
-                };
-            }
-        }
-    }, [post]);
+    // useEffect(() => {
+    //     if (post) {
+    //         if (typeof post.imagePath === 'string') {
+    //             setImageURL(post.imagePath); // URL인 경우
+    //         } else if (post.imagePath instanceof File) {
+    //             const url = URL.createObjectURL(post.imagePath);
+    //             setImageURL(url); // File인 경우 URL 생성
+    //
+    //             // 컴포넌트가 언마운트될 때 Object URL을 해제하여 메모리 누수를 방지합니다.
+    //             return () => {
+    //                 URL.revokeObjectURL(url);
+    //             };
+    //         }
+    //     }
+    // }, [post]);
 
     if (!post) {
         return <div>게시글을 찾을 수 없습니다.</div>;
     }
-    console.log(post.imageFile)
+    console.log(post.imagePath)
     console.log(post)
 
     return (
         <div className={styles.pageContainer}>
             <h1 className={styles.title}>{post.title}</h1>
             <div className={styles.info}>
-                <span className={styles.date}>{post.date}</span>
+                <span className={styles.date}>{post.time}</span>
                 <span className={styles.views}>{post.views} views</span>
             </div>
             <div className={styles.imageContainer}>
-                {imageURL && <img src={`http://http://3.37.252.66:8080/${post.imageFile}`} alt={post.title} className={styles.image} />}
+                <img src={post.downloadUrl} alt={post.title} className={styles.image} />
             </div>
             <p className={styles.content}>{post.content}</p>
         </div>

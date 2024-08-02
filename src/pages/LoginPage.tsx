@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import styles from '../styles/loginpage.module.scss';
 import axios from "axios";
 import { EmptyLogin, Login } from "../interface/user";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import plant from '../images/plant.png';
 
 function LoginPage({ login, setLogin }: { login: boolean; setLogin: React.Dispatch<React.SetStateAction<boolean>> }) {
     if (login) {
@@ -61,6 +62,7 @@ function LoginPage({ login, setLogin }: { login: boolean; setLogin: React.Dispat
             <div className={styles.loginSection}>
                 <div className={styles.loginImage}>
                     <h2>로그인</h2>
+                    <img src={plant} alt="Plant" className={styles.plantImage} />
                 </div>
                 <div className={styles.loginForm}>
                     <div className={styles.loginFormTitle}>

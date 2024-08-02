@@ -327,7 +327,7 @@
 
 import React, { useState, useEffect } from 'react';
 import styles from '../styles/createpostpage.module.scss';
-import { Post } from "../interface/posts";
+import {getPost, Post} from "../interface/posts";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -339,12 +339,11 @@ declare global {
 
 interface CreatePostPageProps {
     setSelectedPlace: (place: { lat: number, lng: number } | null) => void;
-    addPost: (post: Post) => void;
     login: boolean;
     setLogin: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-function CreatePostPage({ setSelectedPlace, addPost, login, setLogin }: CreatePostPageProps) {
+function CreatePostPage({ setSelectedPlace, login, setLogin }: CreatePostPageProps) {
     if (login) {
         setLogin(true);
     } else {

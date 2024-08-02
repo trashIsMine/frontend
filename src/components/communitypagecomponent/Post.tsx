@@ -85,7 +85,7 @@ const PopularPosts: React.FC<PopularPostsProps> = ({ getposts }) => {
         <section className={styles.popularPosts}>
             {getposts.map((post, index) => (
                 <div className={styles.post} key={post.id} onClick={() => goToPostDetail(post.id)}>
-                    <img src={imageURLs[index]} alt={post.title} />
+                    <img src={post.downloadUrl} alt={post.title} />
                     <div className={styles.postDetails}>
                         <h3>{post.title}</h3>
                         <p>{post.location} | {post.participants} | {post.time}</p>

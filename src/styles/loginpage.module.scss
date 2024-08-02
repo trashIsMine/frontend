@@ -2,119 +2,146 @@
 
 .container {
   width: 100%;
+  max-width: 1250px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: auto auto;
 }
 
 .loginSection {
   display: flex;
-  justify-content: center;
+  width: 100%; /* 가로로 꽉 차게 */
+  height: calc(100vh / 3 + 100px); /* 세로로 페이지의 1/3 높이 + 50px */
+  margin: 0;
+  background-color: #00950F; /* 초록색 배경 */
+  justify-content: flex-start; /* 시작 위치로 조정 */
   align-items: center;
-  width: 100%;
-  height: 100%;
-  max-width: 1200px;
-  background-color: white;
-  margin-top: 0px;
-  border-radius: 10px;
-  overflow: hidden;
-  padding: 0;
   position: relative;
 }
 
 .loginImage {
-  flex: 1;
-  background-color: #4caf50;
-  color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  padding: 40px;
+  align-items: flex-start;
   position: relative;
-}
+  margin-left: 150px; /* 로그인 텍스트 위치 조정 */
+  margin-right: 100px; /* 로그인 창과의 거리 확보 */
 
-.loginImage h2 {
-  font-size: 60px;
-  font-family: 'Alfa Slab One', sans-serif;
+  h2 {
+    font-size: 60px;
+    font-family: 'Alfa Slab One', sans-serif;
+    color: white; /* 텍스트 색상 흰색 */
+  }
+
+  .plantImage {
+    position: absolute;
+    top: 50%; /* 세로 중앙에 위치 */
+    left: 330px; /* 오른쪽으로 150px 이동 */
+    transform: translate(-50%, -50%);
+    width: auto; /* 가로세로 비율 유지 */
+    height: calc(100vh / 3 + 100px); /* 초록색 컨테이너 높이에 맞추기 */
+  }
 }
 
 .loginForm {
-  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  padding: 40px;
+  align-items: flex-start; /* 로그인 창의 시작 위치 조정 */
+  padding: 75px; /* 크기 1.5배 확대 */
   text-align: left;
-}
+  background: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 25px;
+  position: absolute;
+  top: calc(100vh / 3 + 25px); /* 초록색 박스 끝나는 선에 걸치도록 위치 조정 */
+  transform: translateY(-50%);
+  left: calc(50% + 100px); /* 화분으로부터 100px 떨어진 위치 */
 
-.loginFormTitle {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 20px;
-}
+  h1, h2 {
+    margin-bottom: 20px;
+  }
 
-.loginFormTitle h4 {
-  margin: 0;
-}
+  .loginFormTitle {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 20px;
 
-.loginFormTitleSignup {
-  display: flex;
-  flex-direction: column;
-  text-align: right;
-  margin-top: 10px;
-}
+    h4 {
+      margin: 0;
+    }
 
-.green {
-  color: #4caf50;
-}
+    .loginFormTitleSignup {
+      display: flex;
+      flex-direction: row;
+      text-align: right;
+      margin-top: 10px;
+    }
+  }
 
-.form {
-  width: 100%;
-  max-width: 300px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
+  .green {
+    color: #00950F;
+  }
 
-.input {
-  padding: 10px;
-  font-size: 14px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-top: 10px;
-}
+  .form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 
-.submitButton {
-  padding: 10px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-}
+    label {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 10px;
+    }
 
-.submitButton:hover {
-  background-color: #45a049;
-}
+    .input {
+      padding: 10px; /* 크기 1.5배 확대 */
+      font-size: 12px; /* 크기 1.5배 확대 */
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-top: 10px;
+      width: 100%;
+      max-width: 600px; /* 크기 1.5배 확대 */
+    }
 
-.signupLink {
-  margin-top: 20px;
-  text-align: center;
-  font-size: 14px;
-}
+    .submitButton {
+      padding: 10px; /* 크기 1.5배 확대 */
+      background-color: #00950F;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 15px; /* 크기 1.5배 확대 */
+      cursor: pointer;
+      width: 50%;
+      max-width: 600px; /* 크기 1.5배 확대 */
+      margin: auto auto;
+      height: 100%;
+    }
 
-.signupLink a {
-  color: #4caf50;
-  text-decoration: none;
-}
+    .submitButton:hover {
+      background-color: #007F0A;
+    }
+  }
 
-.signupLink a:hover {
-  text-decoration: underline;
+  .signupLink {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+
+    a {
+      color: #00950F;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
 }
