@@ -1,15 +1,111 @@
+///* mypage.module.scss */
+//.pageContainer {
+//  display: flex;
+//  flex-direction: column;
+//  min-height: 89vh; /* 페이지의 전체 높이를 차지하도록 설정 */
+//}
+//
+//.secondContainer {
+//  display: flex;
+//  flex: 1; /* 콘텐츠 영역이 가능한 모든 공간을 차지하도록 설정 */
+//}
+//
+//.sidebar {
+//  width: 200px;
+//
+//  padding: 20px;
+//  padding-left: 40px;
+//  //background-color: #f4f4f4;
+//  //box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+//}
+//
+//.content {
+//  flex: 1; /* 사이드바를 제외한 나머지 공간을 차지하도록 설정 */
+//  //padding-left: 20px; /* 사이드바의 너비를 고려하여 패딩 조정 */
+//  //padding-right: 20px; /* 오른쪽 여백 추가 */
+//}
+//
+//.buttonContainer {
+//  display: flex;
+//  justify-content: space-evenly;/* 버튼 사이의 공간을 균등하게 분배 */
+//  gap: 30px; /* 버튼 사이의 간격 조정 (선택 사항) */
+//}
+//
+//.button {
+//  flex: 1; /* 버튼이 가능한 공간을 균등하게 차지하도록 설정 */
+//  padding: 10px 20px;
+//  border: none;
+//  border-radius: 5px;
+//  font-size: 16px;
+//  cursor: pointer;
+//  transition: background-color 0.3s;
+//}
+/* mypage.module.scss */
 .pageContainer {
   display: flex;
+  flex-direction: column;
+  min-height: 89vh; // 페이지의 전체 높이를 차지하도록 설정
+}
+
+.secondContainer {
+  display: flex;
+  flex: 1; // 콘텐츠 영역이 가능한 모든 공간을 차지하도록 설정
 }
 
 .sidebar {
   width: 200px;
-  background-color: #f4f4f4;
   padding: 20px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  padding-left: 100px;
+  //background-color: #f4f4f4;
+  //box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
 }
 
 .content {
-  flex: 1;
-  padding: 20px;
+  //padding-left: -30px;
+
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+
+  justify-content: center;
+
+  flex: 1; // 사이드바를 제외한 나머지 공간을 차지하도록 설정
+  //padding-left: 20px; // 사이드바의 너비를 고려하여 패딩 조정
+  //padding-right: 20px; // 오른쪽 여백 추가
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center; /* 버튼 사이의 공간을 균등하게 분배 */
+  gap: 30px; /* 버튼 사이의 간격 조정 (선택 사항) */
+  border-radius: 50%; /* 모서리를 둥글게 하여 타원형으로 만듭니다 */
+  padding: 40px; /* 타원형을 더 명확하게 보이도록 패딩을 추가합니다 */
+
+  height: 100px; /* 원하는 높이를 설정합니다 */
+  align-items: center; /* 버튼이 타원형 내부에서 수직으로 정렬되도록 합니다 */
+}
+
+
+
+.button {
+  background-color: rgba(75,175,32,0.5);
+  flex: 1; // 버튼이 가능한 공간을 균등하게 차지하도록 설정
+  padding: 10px 20px;
+
+  border: 1px solid transparent; // 경계선 설정
+  border-radius: 5px;
+  font-size: 30px;
+  color : #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s; // 배경색과 경계선 색상의 전환 효과 추가
+
+  &:hover {
+    background-color: darken(#fff, 10%); // 호버 시 배경색 어둡게 변경
+    border-color: darken(#ccc, 10%); // 호버 시 경계선 색상 어둡게 변경
+  }
+
+  &.active {
+    background-color: #4CAF50; // 활성 상태일 때의 배경색
+    color: white; // 활성 상태일 때의 텍스트 색상
+  }
 }

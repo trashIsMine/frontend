@@ -38,7 +38,7 @@
             width: 700px; /* 너비를 줄임 */
             height: 330px;
             position: relative; /* 이미지의 절대 위치를 위한 상대 위치 */
-            padding-left: 200px; /* 이미지 위치를 고려한 여백 설정 */
+            padding-left: 50px; /* 이미지 위치를 고려한 여백 설정 */
 
             .reviewText {
                 font-family: 'Poppins', sans-serif;
@@ -57,7 +57,7 @@
                     border-radius: 50%;
                     position: absolute;
                     bottom: 20px;
-                    left: -70px; /* 이미지 위치 조정 */
+                    left: 20px; /* 이미지 위치 조정 */
                     z-index: 1;
                 }
 

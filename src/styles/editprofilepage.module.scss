@@ -1,44 +1,68 @@
 .pageContainer {
-  max-width: 600px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
   background-color: #fff;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px; // 모서리 둥글게 처리
 }
 
 .formGroup {
   margin-bottom: 20px;
+  padding-left: 200px; // 좌측 패딩 조정
+  width: 800px;
 }
 
 .formGroup label {
   display: block;
   margin-bottom: 5px;
+  font-size: 16px; // 레이블 폰트 크기 조정
+  color: #4CAF50; // 레이블 색상 조정
 }
 
-.formGroup input {
+.formGroup input, .formGroup select { // select 스타일 추가
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  box-sizing: border-box; // 박스 사이징 방법을 border-box로 설정
+}
+
+.imagePreview{
+
+  width: 500px;
+  height: 500px;
 }
 
 .buttonGroup {
   display: flex;
-  justify-content: space-between;
+  width: 800px;
+  padding-left: 200px; // 좌측 패딩 조정
+  justify-content: space-between; // 버튼 사이의 공간을 균등하게 분배
+  margin-top: 20px; // 상단 마진 추가
 }
 
 .cancelButton, .saveButton {
+  width: 150px; // 버튼 너비 조정
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
+  font-size: 16px; // 폰트 크기 조정
   cursor: pointer;
+  transition: background-color 0.3s; // 배경색 변경 시 트랜지션 추가
 }
 
 .cancelButton {
   background-color: #ccc;
+  &:hover {
+    background-color: #b3b3b3; // 호버 상태에서 색상 변경
+  }
 }
 
 .saveButton {
   background-color: #4CAF50;
   color: #fff;
+  &:hover {
+    background-color: #45a049; // 호버 상태에서 색상 변경
+  }
 }
