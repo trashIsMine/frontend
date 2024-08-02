@@ -13,6 +13,15 @@ function TopMenu({ login, setLogin }: { login: boolean; setLogin: React.Dispatch
         else {
             navigate('/login')
         }
+
+        const token = localStorage.getItem('token');
+        if (token) {
+            navigate('/mypage');
+        }
+        else {
+            navigate('/login')
+        }
+
         // {login} : navigate('/login') ? navigate('/mypage')
         // navigate('/login');
     };
@@ -33,10 +42,10 @@ function TopMenu({ login, setLogin }: { login: boolean; setLogin: React.Dispatch
                     <button className={styles.iconButton} aria-label="User Profile" onClick={handleUserProfileClick}>
                         <FaUserCircle className={styles.icon}/>
                     </button>
-                    <div className={styles.divider}></div>
-                    <button className={styles.iconButton} aria-label="Menu">
-                        <FaBars className={styles.icon}/>
-                    </button>
+                    {/*<div className={styles.divider}></div>*/}
+                    {/*<button className={styles.iconButton} aria-label="Menu">*/}
+                    {/*    <FaBars className={styles.icon}/>*/}
+                    {/*</button>*/}
                 </div>
             </nav>
         </div>

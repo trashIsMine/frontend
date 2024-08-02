@@ -17,6 +17,7 @@ import MyPage from "./pages/MyPage";
 import EditProfilePage from "./pages/EditProfilePage";
 import SignupPage from "./pages/SignupPage";
 import {getPost, Post} from "./interface/posts";
+import MyWritePage from "./pages/MyWritePage";
 
 
 function App() {
@@ -45,7 +46,7 @@ function App() {
         };
 
         fetchPosts();
-    }, []);
+    }, [posts]);
 
     const [message, setMessage] = useState('');
     const [login, setLogin] = useState<boolean>(false);
@@ -66,7 +67,8 @@ function App() {
                     <Route path="/notice/:id" element={<NoticeDetailPage login={login} setLogin={setLogin}/>} />
                     <Route path="/post/:id" element={<PostDetailPage posts={posts} login={login} setLogin={setLogin}/>} />
                     <Route path="/mypage" element={<MyPage/>} />
-                    <Route path="/mypage/edit" element={<EditProfilePage/>} />
+                    <Route path="/mypage/edit" element={<EditProfilePage/>} />/mypage/posts
+                    <Route path="/mypage/posts" element={<MyWritePage/>} />
                 </Routes>
             </div>
         </Router>

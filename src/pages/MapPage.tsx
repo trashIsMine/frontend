@@ -244,7 +244,7 @@ function MapPage({ selectedPlace, login, setLogin }: MapPageProps) {
 
     return (
         <div id="map" className={styles.map}>
-            {selectedPost && <DetailPanel post={selectedPost} />}
+            {selectedPost && <DetailPanel post={selectedPost} />}Loading...
         </div>
     );
 }

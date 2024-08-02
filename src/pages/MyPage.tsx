@@ -6,6 +6,9 @@ import BottomBanner from '../components/BottomBanner';
 
 
 const MyPage = () => {
+    const onClick = () => {
+        localStorage.removeItem('token');
+    }
     return (
         <div className={styles.pageContainer}>
             <div className={styles.secondContainer}>
@@ -38,6 +41,9 @@ const MyPage = () => {
                         </Link>
                         <Link to="/mypage/delete" className={styles.buttonLink}>
                             <button className={styles.button}>회원탈퇴</button>
+                        </Link>
+                        <Link to="/login" className={styles.buttonLink}>
+                            <button className={styles.button} onClick={onClick}>로그아웃</button>
                         </Link>
                     </div>
 

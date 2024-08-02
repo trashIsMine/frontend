@@ -88,7 +88,7 @@ const PopularPosts: React.FC<PopularPostsProps> = ({ getposts }) => {
                     <img src={post.downloadUrl} alt={post.title} />
                     <div className={styles.postDetails}>
                         <h3>{post.title}</h3>
-                        <p>{post.location} | {post.participants} | {post.time}</p>
+                        <p>{post.location} | {post.participants}명 모집 | {post.time}</p>
                         <p>{post.description+"..."}</p>
                         <span>{post.views} views</span>
                     </div>
