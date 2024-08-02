@@ -201,6 +201,7 @@ function MapPage({ selectedPlace, login, setLogin }: MapPageProps) {
             const map = new window.kakao.maps.Map(mapContainer, mapOption);
             const markerImage = new window.kakao.maps.MarkerImage(marker, new window.kakao.maps.Size(30, 40), {offset: new window.kakao.maps.Point(27, 69)});
 
+
             posts.map((post) => {
                 console.log(typeof(post.lat), typeof(post.lng))
                 if (typeof post.lat === "string" && typeof post.lng === "string") {
@@ -211,7 +212,14 @@ function MapPage({ selectedPlace, login, setLogin }: MapPageProps) {
                         image: markerImage
                     });
 
-                    const iwContent = ReactDOMServer.renderToString(<MarkerContent post={post} />); // 인포윈도우 내용
+                    const onClose = () => {
+                        // infoWindow.close();
+                        // console.log("InfoWindow closed for post:", post.id);
+                        // 추가적인 로직
+                        setSelectedPost(null);
+                    };
+
+                    const iwContent = ReactDOMServer.renderToString(<MarkerContent post={post} onClose={onClose}/>); // 인포윈도우 내용
                     const infoWindow = new window.kakao.maps.InfoWindow({
                         content: iwContent, // 인포윈도우 내용
                         removable: true, // 인포윈도우 닫기 버튼 표시

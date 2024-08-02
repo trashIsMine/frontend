@@ -5,9 +5,10 @@ import {useNavigate} from "react-router-dom";
 
 interface PostContentProps {
     post: getPost;
+    onClose: () => void;
 }
 
-function MarkerContent({ post }: PostContentProps) {
+function MarkerContent({ post, onClose }: PostContentProps) {
     // const navigate = useNavigate();
     // onClick 함수에서 백틱을 사용하여 템플릿 리터럴을 적용
     // const onClick = () => {
@@ -25,6 +26,7 @@ function MarkerContent({ post }: PostContentProps) {
             <div className={styles.arr}>
                 <p className={styles.left}>Location:</p> <p className={styles.center}>{post.location}</p>
             </div>
+            {/*<button onClick={onClose}>닫기</button>*/}
         </div>
     );
 }

@@ -13,7 +13,9 @@ function LoginPage({ login, setLogin }: { login: boolean; setLogin: React.Dispat
         setLogin(false);
     }
     const navigate = useNavigate();
-    const [data, setData] = useState<Login>(EmptyLogin);
+    const [data, setData] = useState<any>({
+        token: '',
+    });
     const baseUrl = "http://3.37.252.66:8080";
     const [inputs, setInputs] = useState({
         username: '',
@@ -36,6 +38,8 @@ function LoginPage({ login, setLogin }: { login: boolean; setLogin: React.Dispat
                 if (response.status === 200) {
                     // alert('Login successful!');
                     setData(response.data);
+                    localStorage.setItem('token', response.data.token);
+                    console.log(response.data)
                     navigate("/");
                     setLogin(true);
                     // 여기서 원하는 동작을 추가할 수 있습니다. 예: 페이지 이동 등.

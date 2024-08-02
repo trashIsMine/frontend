@@ -56,7 +56,7 @@ const CommunityPage = ({ posts,login, setLogin }: CommunityPageProps) => {
                     alert('Error during request');
                 }
             });
-    }, []);
+    }, [articles]);
 
     console.log(articles);
 

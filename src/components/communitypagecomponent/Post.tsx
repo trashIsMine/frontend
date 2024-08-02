@@ -89,7 +89,7 @@ const PopularPosts: React.FC<PopularPostsProps> = ({ getposts }) => {
                     <div className={styles.postDetails}>
                         <h3>{post.title}</h3>
                         <p>{post.location} | {post.participants} | {post.time}</p>
-                        <p>{post.description}</p>
+                        <p>{post.description+"..."}</p>
                         <span>{post.views} views</span>
                     </div>
                 </div>

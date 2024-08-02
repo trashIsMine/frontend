@@ -451,8 +451,8 @@ function CreatePostPage({ setSelectedPlace, login, setLogin }: CreatePostPagePro
         data.append('participants', inputs.participants);
         data.append('date', inputs.date);
         data.append('time', inputs.time);
-        data.append('description', inputs.description);
-        data.append('content', inputs.description);
+        data.append('description', inputs.content.length>30 ? inputs.content.slice(0,30) : inputs.content);
+        data.append('content', inputs.content);
         data.append('lat', inputs.lat.toString());
         data.append('lng', inputs.lng.toString());
 
@@ -466,7 +466,7 @@ function CreatePostPage({ setSelectedPlace, login, setLogin }: CreatePostPagePro
         axios.post(`${baseUrl}/index/articles/create`, data)
             .then((response) => {
                 if (response.status === 200) {
-                    alert('Post successful!');
+                    // alert('Post successful!');
                     navigate('/community');
                 } else {
                     alert('Post failed. Please try again.');
@@ -590,12 +590,12 @@ function CreatePostPage({ setSelectedPlace, login, setLogin }: CreatePostPagePro
                         </select>
                     </div>
                     <div className={styles.formGroup}>
-                        <label htmlFor="description">자세한 설명</label>
+                        <label htmlFor="content">자세한 설명</label>
                         <textarea
-                            id="description"
-                            name="description"
+                            id="content"
+                            name="content"
                             placeholder="자세한 설명을 입력해주세요."
-                            value={inputs.description}
+                            value={inputs.content}
                             onChange={onChange}
                         />
                     </div>
