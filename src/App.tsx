@@ -18,6 +18,7 @@ import EditProfilePage from "./pages/EditProfilePage";
 import SignupPage from "./pages/SignupPage";
 import {getPost, Post} from "./interface/posts";
 import MyWritePage from "./pages/MyWritePage";
+import DeletePage from "./pages/DeletePage";
 
 
 function App() {
@@ -69,6 +70,7 @@ function App() {
                     <Route path="/mypage" element={<MyPage/>} />
                     <Route path="/mypage/edit" element={<EditProfilePage/>} />/mypage/posts
                     <Route path="/mypage/posts" element={<MyWritePage/>} />
+                    <Route path="/mypage/delete" element={<DeletePage/>} />
                 </Routes>
             </div>
         </Router>
